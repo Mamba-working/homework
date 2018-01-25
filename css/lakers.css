@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 a{
     text-decoration: none;
@@ -12,16 +13,25 @@ ul{
 body,html{
     height:100%;
 }
-@font-face{
-    font-family: "logo";
-    src: url('font/logo.ttf')
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
 }
-
+@font-face {
+    font-family: 'intro';  /* project id 539183 */
+    src: url('http://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.eot');
+    src: url('http://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.eot?#iefix') format('embedded-opentype'),
+    url('http://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.woff') format('woff'),
+    url('http://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.ttf') format('truetype'),
+    url('http://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.svg#iconfont') format('svg');
+  }
 
 header{
     height:100%;
-    background: black url(C:/Users/wufeifei/Desktop/Kobe.jpg);
+    background: black url(../picture/Kobe.jpg);
     background-size: cover;
+    position: relative;
 }
 header nav ul{
     float: right;
@@ -29,26 +39,132 @@ header nav ul{
 header nav ul>li{
     float: left;
     margin-top: 30px;
-    margin-right: 50px;
-
+    border-radius: 5px;
+    border:none;
+    padding:10px;
+}
+header nav ul>li:hover{
+    background: rgb(254, 197, 3);
+    
+    display: block;
 }
 header nav ul a{
     color: #fff;
 }
 header nav>a{
     color: rgb(254, 197, 3);
-    position: relative;
+    /* position: relative;
     top:10px;
-    left: 20px;
-    font-size: 32px;
+    left: 20px; */
+    margin-left: 30px;
+    font-size: 48px;
+    font-family: 'Dancing Script', cursive;
 }
-header .content{
+header .content >h2{
     color: #fff;
-    width:40px;
+    width:30px;
     float: right;
     position: absolute;
     right: 15%;
     top:30%;
-    font-size: 32px;
-    font-family: "logo";
+    font-size: 45px;
+    font-family: 'Dancing Script', cursive;
+}
+header .content >a{
+    color:#fff;
+    background: rgb(254, 209, 54);
+    float: right;
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    padding:20px;
+    border-radius: 5px;
+    font-size: 24px;
+}
+header .content>a:hover{
+    background: rgb(254, 197, 3);
+}
+
+main{
+    background: #fff;
+}
+main>section{
+    text-align: center;
+    padding-top:100px;
+}
+main h2{
+    font-weight:bold;
+    margin-bottom: 30px;
+    color: rgb(51, 51, 51);
+}
+main p{
+    color: rgb(119, 119, 119);
+    font-style: italic;
+}
+
+@media (min-width: 762px){
+    main #Introduction>ul{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        margin-bottom: 150px;
+    }
+}
+@media (min-width: 1200px) {
+    main #Introduction>ul{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+}
+main #Introduction>ul>li{
+    font-family: 'intro';
+    font-size: 150px;
+    color: rgb(254, 209, 54);
+    margin-top:50px;
+}
+#Introduction>ul p,h3{
+    font-size:15px;
+    color: #999;
+    width: 200px;
+    margin:0 auto;
+    margin-top: 40px;
+}
+#Introduction>ul h3{
+    color: #000;
+}
+
+#Members{
+    background: rgb(247,247,247);
+}
+#Members>ul>li>span{
+    background: rgba(254, 209, 54, .9);
+}
+#Members img{
+    width:300px;
+}
+#Members img:hover{
+    opacity: 1;
+}
+#Members>ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top:50px;
+    padding-bottom: 100px;
+}
+#Members>ul>li{
+    margin:0 50px;
+    margin-top: 80px; 
+    background: #fff;
+    border-radius: 5px;
+}
+#Members>ul>li>p{
+    margin: 0 auto;
+    margin-top:30px;
+    padding-bottom: 20px;
+    width: 100px;
+}
+#Members>ul>li>h3{
+    color: #000;
 }
