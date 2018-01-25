@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+ul{
+    list-style: none;
+}
+body,html{
+    height:100%;
+}
+@font-face{
+    font-family: "logo";
+    src: url('font/logo.ttf')
+}
+
+
+header{
+    height:100%;
+    background: black url(C:/Users/wufeifei/Desktop/Kobe.jpg);
+    background-size: cover;
+}
+header nav ul{
+    float: right;
+}
+header nav ul>li{
+    float: left;
+    margin-top: 30px;
+    margin-right: 50px;
+
+}
+header nav ul a{
+    color: #fff;
+}
+header nav>a{
+    color: rgb(254, 197, 3);
+    position: relative;
+    top:10px;
+    left: 20px;
+    font-size: 32px;
+}
+header .content{
+    color: #fff;
+    width:40px;
+    float: right;
+    position: absolute;
+    right: 15%;
+    top:30%;
+    font-size: 32px;
+    font-family: "logo";
+}
