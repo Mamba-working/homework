@@ -18,14 +18,6 @@ body,html{
     display: block;
     clear: both;
 }
-@font-face {
-    font-family: 'intro';  /* project id 539183 */
-    src: url('https://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.eot');
-    src: url('https://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.eot?#iefix') format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.ttf') format('truetype'),
-    url('https://at.alicdn.com/t/font_539183_bf2w625ioif11yvi.svg#iconfont') format('svg');
-  }
 
 header{
     height:100%;
@@ -118,10 +110,12 @@ main p{
     }
 }
 main #Introduction>ul>li{
-    font-family: 'intro';
     font-size: 150px;
     color: rgb(254, 209, 54);
     margin-top:50px;
+}
+main #Introduction>ul>li>span{
+    font-size: 125px;
 }
 #Introduction>ul p,h3{
     font-size:15px;
