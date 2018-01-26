@@ -25,7 +25,6 @@ html {
 }
 
 header {
-    height: 100%;
     background: black url(../picture/Kobe.jpg);
     background-size: cover;
     position: relative;
@@ -75,13 +74,13 @@ header nav>a {
 } */
 header .content>h2 {
     color: #fff;
-    width: 30px;
-    float: right;
-    position: absolute;
-    right: 15%;
-    top: 30%;
-    font-size: 45px;
+    text-align: right;
+    margin: 0 auto;
+    font-size: 25px;
     font-family: 'Dancing Script', cursive;
+    margin-top:400px;
+    padding-bottom: 250px;
+    margin-right: 50px;
 }
 
 header .content>a {
@@ -387,11 +386,22 @@ h3 {
 #team>ul{
     padding-top: 100px;
 }
-#team ul{
-    display: flex;
-    justify-content: space-around;
-    
+@media (min-width: 400px){
+    #team ul{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
+@media (min-width: 1200px){
+    #team ul{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
 
 #team>ul img{
     border-radius: 50%;
