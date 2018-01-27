@@ -99,14 +99,62 @@ header .content>a {
 header .content>a:hover {
     background: rgb(254, 197, 3);
 }
+header>span ul{
+    background: white;
+    position: relative;
+    top:5px;
+    
+    border-radius: 10px;
+    font-size: 16px;
+}
+header>span ul>li{
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+header>span ul>li:last-child{
+    margin-bottom: 0;
+}
+header>span ul>li:hover{
+    background: rgb(254, 209, 54);
+}
+header>span ul::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:-7px;
+    left: 15px;
+    background: white;
+    transform: rotate(45deg);
+}
+header>span ul>li>a{
+    padding:8px 50px;
+}
 @media (min-width: 300px){
     header nav ul{
-        display: none;
+        display: none ;
+    }
+    header>span{
+        float: right;
+        margin-right: 10px;
+        font-size: 40px;
+    }
+    header>span>i{
+        transition: 0.3s all;
+        color: white;
+    }
+    header>span>i:hover{
+        transform:rotate(90deg);
+        color: rgb(254, 197, 3);
     }
 }
 @media (min-width: 1200px){
     header nav ul{
         display: block;
+    }
+    header span{
+        display: none !important;
     }
 }
 main {
@@ -129,13 +177,16 @@ main p {
     font-style: italic;
 }
 
-@media (min-width: 762px) {
+@media (min-width: 300px) {
     main #Introduction>ul {
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         margin-bottom: 150px;
     }
+    
+    
+
 }
 
 @media (min-width: 1200px) {
@@ -386,11 +437,19 @@ h3 {
 #team>ul{
     padding-top: 100px;
 }
-@media (min-width: 400px){
+@media (min-width: 300px){
     #team ul{
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+    #team>ul>li>ul{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    #team>ul>li>ul>li{
+        margin:0 10px;;
     }
 }
 @media (min-width: 1200px){
@@ -399,6 +458,14 @@ h3 {
         justify-content: space-around;
         flex-wrap: wrap;
         flex-direction: row;
+    }
+    #team>ul>li>ul{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    #team>ul>li>ul>li{
+        margin:0 auto;
     }
 }
 
