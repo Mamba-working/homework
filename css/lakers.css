@@ -107,7 +107,7 @@ header>span ul>li:last-child{
 header>span ul>li:hover{
     background: rgb(254, 209, 54);
 }
-header>span ul::before{
+/* header>span ul::before{
     position: absolute;
     top:-7px;
     left: 15px; 
@@ -120,7 +120,7 @@ header>span ul::before{
     transform: rotateZ(45deg);
     position: absolute;
     content: '';
-}
+} */
 header>span ul>li>a{
     display: block;
     padding:8px 50px;
@@ -133,20 +133,26 @@ header>span ul>li>a{
         float: right;
         margin-right: 10px;
         font-size: 40px;
+        position: relative;
     }
     header>span>i{
         transition: 0.3s all;
         color: white;
     }
-    header>span>i:hover{
+    header>span:hover i{
         transform:rotate(90deg);
         color: rgb(254, 197, 3);
     }
-    header>span>ul{
+    header>span ul{
+        display: none;
         transition: 0.3s all;
         opacity: 0;
+        position: absolute;
+        top:45px;
+        right: 0px;
     }
-    header>span>i:hover+ul{    
+    header>span:hover i+ul{   
+        display: block;
         opacity: 1;
     }
 }
