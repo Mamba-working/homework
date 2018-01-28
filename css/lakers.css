@@ -29,6 +29,8 @@ header {
     background: black url(../picture/Kobe.jpg);
     background-size: cover;
     position: relative;
+    background-position: center;
+    background-attachment: scroll;
 }
 
 header nav ul {
