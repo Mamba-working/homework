@@ -129,6 +129,14 @@ header>span ul>li>a{
     header nav ul{
         display: none ;
     }
+    header>span:hover::before{
+        width:150px;
+        height: 50px;
+        opacity: 1;
+        content: '';
+        position: absolute;
+        right: 35px;
+    }
     header>span{
         float: right;
         margin-right: 10px;
