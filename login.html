@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            color: black;
+            transition: all 0.5s;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-image: url("picture/bizhi.jpg");
+            height: 100%
+        }
+
+        /* header>nav a::after{
+            content: '';
+            display: inline-block;
+            clear: both;
+        } */
+
+        header>nav>a {
+            float: right;
+            display: inline-block;
+        }
+
+        header>nav>a>i {
+            font-size: 30px !important;
+            color: white;
+
+        }
+
+        main {
+            height: 100%;
+
+        }
+
+        main .layout {
+            display: none;
+        }
+
+        div#login,
+        div#regist {
+            display: inline-block;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 3px 4px 5px rgba(0, 0, 0, 0.2);
+            background: white;
+            width: 256px;
+            position: absolute;
+            top: calc(50% - 158px);
+            left: calc(50% - 123.75px);
+            transition: all 1s;
+            backface-visibility: hidden;
+        }
+
+        div.layout>div.rotate {
+            transform: rotateY(180deg);
+        }
+
+        div#login span,
+        div#regist span {
+            font-size: 20px;
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            cursor: pointer;
+            color: black;
+        }
+
+        div#login .a,
+        div#regist .a {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        div#login .a a,
+        div#regist .a a {
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        div#login a.active,
+        div#regist a.active {
+            border-bottom: 1px solid;
+        }
+
+        div#regist form div i {
+            position: relative;
+            right: 80%;
+        }
+
+        div#login form div i {
+            position: relative;
+            right: 80%;
+        }
+
+        div#login input[type=text],
+        div#login input[type=password],
+        div#regist input[type=text],
+        div#regist input[type=password] {
+            margin: 10px;
+            padding: 5px;
+            padding-left: 28px;
+        }
+
+        div#login input[type=submit],
+        div#regist input[type=submit] {
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input.invalid::-webkit-input-placeholder {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#" id="user">
+                <i class="fa fa-user-circle"></i>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="layout">
+            <div id="login">
+                <span class="dropOut">×</span>
+                <div class="a">
+                    <a href="#" class="active" id="switching1">登录</a>
+                    <a href="#" id="switching2">注册</a>
+                </div>
+                <form action="" method="POST" id="loginForm">
+                    <div>
+                        <input type="text" placeholder="用户名">
+                        <i class="fa fa-user-o"></i>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="密码">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+
+                </form>
+            </div>
+            <div id="regist" class="rotate">
+                <span class="dropOut">×</span>
+                <div class="a">
+                    <a href="#" id="switching3">登录</a>
+                    <a href="#" class="active" id="switching4">注册</a>
+                </div>
+                <div id="erromes" style="height:15.5px">
+
+                </div>
+                <form action="" method="POST" id="registForm">
+                    <div>
+                        <input type="text" placeholder="输入你的用户名">
+                        <i class="fa fa-user-o"></i>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="输入你的密码">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="再次输入你的密码">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        function $(select) {
+            return document.querySelector(select);
+        }
+
+        function $$(select) {
+            return document.querySelectorAll(select);
+        }
+        let login = $("#login");
+        let regist = $("#regist");
+        let user = $("#user");
+        let layout = $(".layout");
+        let loginForm = $('#loginForm');
+        let registForm = $('#registForm');
+        let flag = true;
+        user.addEventListener("click", function () {
+            $(".layout").style.display = 'block';
+        })
+        let dropOut = $$("div span");
+        dropOut.forEach(function (node) {
+            node.addEventListener("click", function () {
+                $(".layout").style.display = 'none';
+            })
+        })
+        let switching1 = $("#switching1");
+        switching1.addEventListener("click", function (e) {
+            e.stopPropagation();
+            regist.classList.add("rotate");
+            login.classList.remove("rotate");
+
+        })
+        switching2.addEventListener("click", function (e) {
+            e.stopPropagation();
+            login.classList.add("rotate");
+            regist.classList.remove("rotate");
+        })
+        switching3.addEventListener("click", function (e) {
+            e.stopPropagation();
+            regist.classList.add("rotate");
+            login.classList.remove("rotate");
+
+        })
+        switching4.addEventListener("click", function (e) {
+            e.stopPropagation();
+            login.classList.add("rotate");
+            regist.classList.remove("rotate");
+        })
+        document.addEventListener("click", function (e) {
+            if (e.target !== user.firstElementChild) {
+                layout.style.display = 'none';
+            }
+
+        })
+        layout.addEventListener("click", function (e) {
+            e.stopPropagation();
+        })
+        loginForm.children[0].firstElementChild.addEventListener("blur", function () {
+            if (loginForm.children[0].firstElementChild.value == "") {
+                loginForm.children[0].firstElementChild.classList.add("invalid");
+                loginForm.children[0].firstElementChild.placeholder = "用户名为空";
+                flag = false;
+            }
+        })
+        loginForm.children[0].firstElementChild.addEventListener("focus", function () {
+            loginForm.children[0].firstElementChild.placeholder = "输入你的用户名";
+            loginForm.children[0].firstElementChild.classList.remove("invalid");
+            flag = true;
+        })
+        loginForm.children[1].firstElementChild.addEventListener("blur", function () {
+            if (loginForm.children[1].firstElementChild.value == "") {
+                loginForm.children[1].firstElementChild.classList.add("invalid");
+                loginForm.children[1].firstElementChild.placeholder = "密码为空";
+                flag = false;
+            }
+        })
+        loginForm.children[1].firstElementChild.addEventListener("focus", function () {
+
+            loginForm.children[1].firstElementChild.classList.remove("invalid");
+            loginForm.children[1].firstElementChild.placeholder = "密码";
+            flag = true;
+
+        })
+
+
+
+        registForm.children[0].firstElementChild.addEventListener("blur", function () {
+            if (registForm.children[0].firstElementChild.value == "") {
+                registForm.children[0].firstElementChild.classList.add("invalid");
+                registForm.children[0].firstElementChild.placeholder = "用户名为空";
+                flag = false;
+            }
+        })
+        registForm.children[0].firstElementChild.addEventListener("focus", function () {
+            registForm.children[0].firstElementChild.placeholder = "用户名";
+            registForm.children[0].firstElementChild.classList.remove("invalid");
+            flag = true;
+        })
+        registForm.children[1].firstElementChild.addEventListener("blur", function () {
+            if (registForm.children[1].firstElementChild.value == "") {
+                registForm.children[1].firstElementChild.classList.add("invalid");
+                registForm.children[1].firstElementChild.placeholder = "密码为空";
+                flag = false;
+            }
+        })
+        registForm.children[1].firstElementChild.addEventListener("focus", function () {
+
+            registForm.children[1].firstElementChild.classList.remove("invalid");
+            registForm.children[1].firstElementChild.placeholder = "输入你的密码";
+            flag = true;
+
+        })
+        registForm.children[2].firstElementChild.addEventListener("blur", function () {
+            if (registForm.children[2].firstElementChild.value !== registForm.children[1].firstElementChild.value) {
+                console.log("ok");
+                $("#erromes").innerText = "两次输入不一致";
+                flag = false;
+            }
+        })
+        registForm.children[2].firstElementChild.addEventListener("focus", function () {
+
+            $("#erromes").innerText = "";
+            $("#erromes").style.color =" #ff9800";
+            $("#erromes").style["font-size"] = "12px";
+            flag = true;
+
+        })
+        let forms = $$("form");
+        forms.forEach(function(node){
+            node.addEventListener("submit",function(e){
+                e.preventDefault();
+                if(flag){
+                    this.submit();
+                    console.log(1)
+                }
+                else{
+                    return false;
+                    
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
