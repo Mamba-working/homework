@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2018 by anonymous (http://js.jirengu.com/qaqalefovo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<script src="http://fb.me/react-with-addons-0.12.0.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.layout{
+  margin:0 auto;
+  width:60%;
+}
+ul{
+  list-style:none;
+  
+}
+ul::after{
+  content:'';
+  display:block;
+  clear:both;
+}
+
+li{
+  padding:10px;
+  border:1px solid #ccc;
+  float:left;
+  width:33.33%;
+  box-sizing:border-box;
+  position:relative;
+}
+a {
+  color: #666;
+  text-decoration: none;
+  border:1px solid ;
+  padding:3px;
+  border-radius:3px;
+}
+
+ul>li span{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0, 0.3);
+  display:none;
+}
+ul>li a{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:white;
+  
+}
+
+</style>
+</head>
+<body>
+  <div class="layout">
+    <ul>
+  <li>
+    <img src="https://picsum.photos/200/200/?image=1" alt="">
+    <div>图片</div>
+    <div>￥19999</div>
+    <span><a href="">删除</a></span>
+  </li>
+  <li>
+    <img src="https://picsum.photos/200/200/?image=2" alt="">
+    <div>图片</div>
+    <div>￥19999</div>
+    <span><a href="">删除</a></span>
+  </li>
+  <li>
+    <img src="https://picsum.photos/200/200/?image=3" alt="">
+    <div>图片</div>
+    <div>￥19999</div>
+    <span><a href="">删除</a></span>
+  </li>
+      
+</ul>
+    <a href="" class="add">添加</a>
+    <a href="" class="edit">编辑</a>
+    
+  </div>
+
+<script id="jsbin-javascript">
+$(".add").on("click",function(e){
+	e.preventDefault();
+  for(let i=0;i<3;i++){
+    let num = Math.floor(Math.random()*85);
+    let html = `
+      <li style="display:none">
+    <img src="https://picsum.photos/200/200/?image=${num}" alt="">
+    <div>图片</div>
+    <div>￥19999</div>
+    <span><a href="">删除</a></span>
+  </li>
+`;
+    $('ul').append(html);
+    $('ul>li').last().fadeIn("slow");
+  }
+})
+
+$(".edit").on("click",function(e){
+  e.preventDefault();
+  $("span").toggle(200)
+})
+
+$("ul").on("click",'a',function(e){
+   e.preventDefault();
+   $(this).parents("li").hide(200);
+})
+</script>
+</body>
+</html>
